@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Use</title>
+
+    <link rel = 'stylesheet' href = 'use_styling.css'>
+
+    <script>
+        function sendMessage() {
+          var request = new XMLHttpRequest();
+          request.open('POST', document.getElementById('wbhkinpt').value);
+    
+          request.setRequestHeader('Content-type', 'application/json');
+    
+          var params = {
+            username: document.getElementById('wbhknameinpt').value,
+            avatar_url: 'https://dumb-dev.github.io/HookCord/Assets/HookCord-Logo.png',
+            content: document.getElementById('msginpt').value,
+          }
+    
+          request.send(JSON.stringify(params));
+        }
+      </script>
+
+  </head>
+
+  <body>
+    <div id = 'heading'>
+        <img id = 'logo_text' src = 'Assets/HookCord-Text-Blurple.png' width = '400' height = '400'>
+        <img id = 'sub_text' src = 'Assets/HookCord-SubText.png' width = '550' height = '100'>
+        <img id = 'logo' src = 'Assets/HookCord-Logo.png' width = '200' height = '200'>
+    </div>
+
+    <div id = 'setup'>
+      <p>Webhook Settings</p>
+      <br>
+      <label for = 'wbhkinpt'>Enter Link To The Webhook</label>
+      <input id = 'wbhkinpt' name = 'wbhkinpt'>
+      <br>
+      <label for = 'wbhknameinpt'>Enter The Name Of Your Webhook</label>
+      <input id = 'wbhknameinpt' name = 'wbhknameinpt'>
+      <br>
+      <p>Message Input</p>
+      <br>
+      <label for = 'msginpt'>Enter Your Message</label>
+      <input id = 'msginpt' name = 'msginpt'>
+      <button id = 'sendbtn' onclick = 'sendMessage()'>Send</button>
+    </div>
+  </body>
+</html>
